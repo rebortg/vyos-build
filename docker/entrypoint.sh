@@ -23,7 +23,7 @@ if ! grep -q $NEW_GID /etc/group; then
     groupadd --gid $NEW_GID $USER_NAME
 fi
 
-useradd --shell /bin/bash --uid $NEW_UID --gid $NEW_GID --non-unique --create-home $USER_NAME
+sudo useradd --shell /bin/bash --uid 500 --gid $NEW_GID --non-unique --create-home $USER_NAME --key UID_MIN=500
 sudo chown $NEW_UID:$NEW_GID /home/$USER_NAME
 export HOME=/home/$USER_NAME
 
